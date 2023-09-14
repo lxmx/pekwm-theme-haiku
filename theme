@@ -1,0 +1,270 @@
+# Haiku Pekwm theme
+# License: GPLv3
+# Author: Vasily Mikhaylichenko
+# Email: vasily@lxmx.org
+# Homepage: https://github.com/lxmx/pekwm-theme-haiku
+
+$FONT = "XFT#Sans:size=9:weight=bold"
+$MENUFONT = "XFT#Sans:size=10"
+$WORKSPACE_FONT = "XFT#Sans:size=10"
+
+$TITLETEXT_FO_0 = "#000000"
+$TITLETEXT_FO_1 = "#B58200"
+$TITLETEXT_UN_0 = "#000000"
+$TITLETEXT_UN_1 = "#9C9C9C"
+$MENUBG_FO = "#E1E1E1"
+$MENUBG_UN = "#D6D6D6"
+$MENULIGHT = "#FFFFFF"
+$MENUSHADOW = "#B8B8B8"
+$MENUTEXT = "#030303"
+$MENUSELECTEDBG = "#A3A3A3"
+$MENUSELECTEDTEXT = "#030303"
+$PANELBG = "#D6D6D6"
+$PANELLIGHT = "#FFFFFF"
+$PANELSHADOW = "#B8B8B8"
+$PANELTEXT = "#000000"
+
+Require {
+	Templates = "True"
+}
+
+Background {
+	Texture = "Solid #bebebe"
+}
+
+Define = "BaseDecor" {
+	Height = "25"
+	HeightAdapt = "False"
+	Pad = "5 0 5 5"
+	WidthMin = "100"
+
+	Focused = "Empty"
+	Unfocused = "Empty"
+
+	Tab {
+		Focused = "Image title-fo.png"
+		FocusedSelected = "Image title-fo.png"
+		Unfocused = "Image title-un.png"
+		UnfocusedSelected = "Image title-un.png"
+	}
+	Separator {
+		Focused = "Image sep-fo.png"
+		Unfocused = "Image sep-un.png"
+	}
+	Font {
+		Focused = "$FONT"
+	}
+	FontColor {
+		Focused = "$TITLETEXT_FO_1"
+		FocusedSelected = "$TITLETEXT_FO_0"
+		Unfocused = "$TITLETEXT_UN_1"
+		UnfocusedSelected = "$TITLETEXT_UN_0"
+	}
+}
+
+Define = "BaseButtons" {
+	Buttons {
+		Left = "Close" {
+			Button = "1" { Actions = "Close" }
+			Button = "3" { Actions = "Set Iconified" }
+			Focused = "Image close-fo.png"
+			Unfocused = "Image close-un.png"
+			Pressed = "Image close-pr.png"
+		}
+		Right = "Maximize" {
+			Button = "1" { Actions = "Toggle Maximized 1 1" }
+			Button = "3" { Actions = "Toggle Maximized 0 1" }
+			Focused = "Image max-fo.png"
+			Unfocused = "Image max-un.png"
+			Pressed = "Image max-pr.png"
+		}
+	}
+}
+
+Define = "BaseBorder" {
+	Border {
+		Focused {
+			TopLeft		= "Image topleft-fo.png"
+			Top		= "Image top-fo.png"
+			TopRight	= "Image topright-fo.png"
+			Left		= "Image left-fo.png"
+			Right		= "Image right-fo.png"
+			BottomLeft	= "Image btmleft-fo.png"
+			Bottom		= "Image btm-fo.png"
+			BottomRight	= "Image btmright-fo.png"
+		}
+		Unfocused {
+			TopLeft		= "Image topleft-fo.png"
+			Top		= "Image top-fo.png"
+			TopRight	= "Image topright-fo.png"
+			Left		= "Image left-fo.png"
+			Right		= "Image right-fo.png"
+			BottomLeft	= "Image btmleft-fo.png"
+			Bottom		= "Image btm-fo.png"
+			BottomRight	= "Image btmright-fo.png"
+		}
+	}
+}
+
+Define = "MenuBorder" {
+	Border {
+		Focused {
+			TopLeft		= "Image brd-topleft.png"
+			Top		= "Image brd-top.png"
+			TopRight	= "Image brd-topright.png"
+			Left		= "Image brd-left.png"
+			Right		= "Image brd-right.png"
+			BottomLeft	= "Image brd-btmleft.png"
+			Bottom		= "Image brd-btm.png"
+			BottomRight	= "Image brd-btmright.png"
+		}
+		Unfocused {
+			TopLeft		= "Image brd-topleft.png"
+			Top		= "Image brd-top.png"
+			TopRight	= "Image brd-topright.png"
+			Left		= "Image brd-left.png"
+			Right		= "Image brd-right.png"
+			BottomLeft	= "Image brd-btmleft.png"
+			Bottom		= "Image brd-btm.png"
+			BottomRight	= "Image brd-btmright.png"
+		}
+	}
+}
+
+
+Define = "EmptyDecor" {
+	Height = "0"
+	Focused = "Empty"
+	Unfocused = "Empty"
+	Tab {
+		Focused = "Empty"
+		FocusedSelected = "Empty"
+		Unfocused = "Empty"
+		UnfocusedSelected = "Empty"
+	}
+	Separator {
+		Focused = "Empty"
+		Unfocused = "Empty"
+	}
+	Font {
+		Focused = "Empty"
+	}
+	FontColor {
+		Focused = "Empty"
+		FocusedSelected = "Empty"
+		Unfocused = "Empty"
+		UnfocusedSelected = "Empty"
+	}
+}
+
+Define = "EmptyBorder" {
+	Border {
+		Focused {
+			TopLeft = "Empty"
+			Top = "Empty"
+			TopRight = "Empty"
+			Left = "Empty"
+			Right = "Empty"
+			BottomLeft = "Empty"
+			Bottom = "Empty"
+			BottomRight = "Empty"
+		}
+		Unfocused {
+			TopLeft = "Empty"
+			Top = "Empty"
+			TopRight = "Empty"
+			Left = "Empty"
+			Right = "Empty"
+			BottomLeft = "Empty"
+			Bottom = "Empty"
+			BottomRight = "Empty"
+		}
+	}
+}
+
+PDecor {
+	Decor = "DEFAULT" {
+		Title {
+			@BaseDecor
+			@BaseButtons
+			@BaseBorder
+		}
+	}
+
+	Decor = "MENU" {
+		Title {
+			@EmptyDecor
+			@MenuBorder
+		}
+	}
+
+	Decor = "STATUSWINDOW" {
+		Title {
+			@EmptyDecor
+			@EmptyBorder
+		}
+	}
+
+	Decor = "WORKSPACEINDICATOR" {
+		Title {
+			@EmptyDecor
+			@EmptyBorder
+		}
+	}
+}
+
+Menu {
+    Pad = "3 3 5 4"
+    Focused {
+      Font = "$MENUFONT"
+      Background = "Solid $MENUBG_FO"
+      Item = "Empty"
+      Text = "$MENUTEXT"
+      Separator = "SolidRaised $MENUBG_FO $MENUSHADOW $MENULIGHT 1x2"
+      Arrow = "Image arrow-fo.png"
+    }
+    Unfocused {
+      Font = "$MENUFONT"
+      Background = "Solid $MENUBG_UN"
+      Item = "Empty"
+      Text = "$MENUTEXT"
+      Separator = "SolidRaised $MENUBG_UN $MENUSHADOW $MENULIGHT 1x2"
+      Arrow = "Image arrow-un.png"
+    }
+    Selected {
+      Font = "$MENUFONT"
+      Background = "Empty"
+      Item = "Solid $MENUSELECTEDBG"
+      Text = "$MENUSELECTEDTEXT"
+      Separator = "Empty"
+      Arrow = "Image arrow-sel.png"
+    }
+}
+
+Harbour {
+	Texture = "Solid $PANELBG"
+}
+
+CmdDialog {
+	Font = "$MENUFONT"
+	Texture = "Solid #ffffff"
+	Text = "#000000"
+	Pad = "3 3 5 5"
+}
+
+Status {
+	Font = "$MENUFONT"
+	Texture = "SolidRaised $PANELBG $PANELSHADOW $PANELLIGHT"
+	Text = "$PANELTEXT"
+	Pad = "3 3 5 5"
+}
+
+WorkspaceIndicator {
+	Font = "$WORKSPACE_FONT"
+	Background = "Solid #ffffff"
+	Workspace = "Solid $PANELBG"
+	WorkspaceActive = "Solid $PANELSHADOW"
+	Text = "#000000"
+	EdgePadding = "5"
+	WorkspacePadding = "2"
+}
