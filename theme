@@ -208,7 +208,7 @@ PDecor {
 	Decor = "WORKSPACEINDICATOR" {
 		Title {
 			@EmptyDecor
-			@EmptyBorder
+			@MenuBorder
 		}
 	}
 }
